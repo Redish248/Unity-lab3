@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
         rb.MovePosition(rb.position + Vector2.right * moveX * speed * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.UpArrow)) {
-            rb.AddForce(Vector2.up * 6000);
+            rb.AddForce(Vector2.up * 8000);
         }
 
         if (moveX > 0  && !faceRight) {

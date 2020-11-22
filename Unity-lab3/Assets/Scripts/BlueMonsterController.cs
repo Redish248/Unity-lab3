@@ -14,7 +14,6 @@ public class BlueMonsterController : MonoBehaviour {
     }
 
     void Update() {
-        print(transform.position.y);
         if (transform.position.y <= 1 && moveTop) {
             transform.Translate(Vector3.up * Time.deltaTime);
         }

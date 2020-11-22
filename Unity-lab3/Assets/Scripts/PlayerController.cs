@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
     
     public float speed = 20f;
     private Rigidbody2D rb;
     private bool faceRight = true;
-   // public string score = "Score: ";
+    public int counter = 0;
+
+    public GameObject txt;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -17,7 +21,7 @@ public class PlayerController : MonoBehaviour {
         rb.MovePosition(rb.position + Vector2.right * moveX * speed * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.UpArrow)) {
-            rb.AddForce(Vector2.up * 8000);
+            rb.AddForce(Vector2.up * 5000);
         }
 
         if (moveX > 0  && !faceRight) {
@@ -26,7 +30,7 @@ public class PlayerController : MonoBehaviour {
             flip();
         }
 
-        //PhotonNetwork.player.name = score;
+        txt.GetComponent<UnityEngine.UI.Text>().text = "Score: " + counter;
 
     }
 
@@ -35,9 +39,5 @@ public class PlayerController : MonoBehaviour {
         faceRight = !faceRight;
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
     }
-
-    //void OnGUI(){
-    //     score = GUI.TextField(new Rect(Screen.width / 2 - 50, Screen.height / 2, 100, 20), PlayerName);
-     //}
 
 }

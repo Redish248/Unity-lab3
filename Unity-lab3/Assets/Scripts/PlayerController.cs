@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour {
     public float speed = 20f;
     private Rigidbody2D rb;
     private bool faceRight = true;
+   // public string score = "Score: ";
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -25,6 +26,8 @@ public class PlayerController : MonoBehaviour {
             flip();
         }
 
+        //PhotonNetwork.player.name = score;
+
     }
 
 
@@ -32,5 +35,9 @@ public class PlayerController : MonoBehaviour {
         faceRight = !faceRight;
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
     }
+
+    //void OnGUI(){
+    //     score = GUI.TextField(new Rect(Screen.width / 2 - 50, Screen.height / 2, 100, 20), PlayerName);
+     //}
 
 }

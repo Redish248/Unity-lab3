@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
     
-    public float speed = 20f;
+    public float speed = 15f;
     private Rigidbody2D rb;
     private bool faceRight = true;
     public int counter = 0;

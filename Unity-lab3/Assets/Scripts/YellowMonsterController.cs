@@ -5,6 +5,7 @@ using UnityEngine;
 public class YellowMonsterController : MonoBehaviour {
     public PlayerController player;
     private bool toDestroy = false;
+    private bool isAdded = false;
 
     void Start() {
         player = (PlayerController)FindObjectOfType(typeof(PlayerController));
@@ -18,8 +19,11 @@ public class YellowMonsterController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Player") {
-            player.counter += 1;
-            toDestroy = true;
+            if (!isAdded) {
+                player.counter += 1;
+                toDestroy = true;
+                isAdded = true;
+            }
         }
     }
 
